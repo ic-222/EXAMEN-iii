@@ -41,6 +41,7 @@ Si no posees git en tu sistema, puedes descargar el proyecto en un archivo zip y
 
 ### Instalar Requerimientos
 Ubícate en la carpeta donde clonaste/descargaste el repositorio, abre una terminal y ejecuta el siguiente comando, así conseguirás todos los módulos usados para que funcione la app.
+<br>
 ![image](https://github.com/ic-222/EXAMEN-iii/assets/136537533/0c8f3e59-4e27-4627-a248-4e05ea1fd9c6)
 
 
