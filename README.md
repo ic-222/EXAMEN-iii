@@ -2,9 +2,22 @@
 
 
 Este gestor de gastos es una aplicación web simple construida con Flask, un marco de desarrollo web de Python. 
-Posee las siguientes funciones:
-1. Permite agregar gastos, información detallada del mismo como nombre, cantidad gastada, descripción y elegir entre las categorías predefinidas.
-2. 
+## Características
+
+1. **Registro de Gastos:**
+   - Los usuarios pueden ingresar información detallada sobre sus gastos diarios, incluyendo el nombre, cantidad gastada, descripción y elegir una categoría predefinida.
+
+2. **Visualización de Gastos:**
+   - Lista estructurada con la posiblidad de ordenar por nombre y cantidad de manera ascendente.
+   - Opciones de filtrado por cada categoría.
+
+3. **Estadísticas Básicas:**
+   - Se podrá observar un total de gastos.
+
+4. **Edición y Eliminación:**
+   - Los usuarios pueden editar la información de gastos existentes y eliminar gastos no deseados.
+
+
 # Requisitos
 Será necesario tener instalado en el sistema pip, Python y *añadirlo al path*, git y un editor de código para poder configurar la app. (Hasta con un bloc de notas podrás llevar a cabo este paso)
 Python: https://www.python.org/downloads/
