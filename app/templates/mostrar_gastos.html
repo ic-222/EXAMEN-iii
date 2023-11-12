@@ -1,0 +1,85 @@
+<!-- templates/mostrar_gastos.html -->
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mostrar Gastos</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Lista de Gastos</h1>
+
+        <div class="left-container">
+            <div class="form-container">
+                <form method="POST" action="{{ url_for('inicio') }}">
+                    <label for="nombre">Nombre:</label>
+                    <input type="text" name="nombre" required><br>
+
+                    <label for="monto">Monto:</label>
+                    <input type="number" name="monto" step="0.01" required><br>
+
+                    <label for="descripcion">Descripción:</label>
+                    <textarea name="descripcion" required></textarea><br>
+
+                    <label for="categoria">Categoría:</label>
+                    <select name="categoria" required>
+                        <option value="alimentacion">Alimentación</option>
+                        <option value="transporte">Transporte</option>
+                        <option value="ocio">Ocio</option>
+                        <option value="personal">Personal</option>
+                    </select><br>
+
+                    <button type="submit">Agregar Gasto</button>
+                </form>
+            </div>
+            
+            <div class="form-container">
+                <form method="POST" action="{{ url_for('filtrar_por_categoria') }}">
+                    <label for="categoria">Filtrar por Categoría:</label>
+                    <select name="categoria">
+                        <option value="">Todas las Categorías</option>
+                        <option value="alimentacion">Alimentación</option>
+                        <option value="transporte">Transporte</option>
+                        <option value="ocio">Ocio</option>
+                        <option value="personal">Personal</option>
+                    </select>
+                    <button type="submit">Filtrar</button>
+                </form>
+            </div>
+            
+        </div>
+        
+        <div class="right-container">
+            <form method="GET" action="{{ url_for('buscar_gastos') }}">
+                <label for="busqueda">Buscar Gastos:</label>
+                <input type="text" id="busqueda" name="busqueda" placeholder="Palabra clave">
+                <button type="submit">Buscar</button>
+            </form>
+            
+            <p class="total-gastado"><strong>Total Gastado:</strong> ${{ '{:,.2f}'.format(total_gastado) }}</p>
+            <div class="ordenar-buscar">
+                <strong>Ordenar por:</strong>
+                <a href="{{ url_for('ordenar_gastos', criterio='nombre') }}">Nombre</a> |
+                <a href="{{ url_for('ordenar_gastos', criterio='monto') }}">Monto</a>
+            </div>
+
+            <ul>
+                {% for gasto in gastos %}
+                    <li>
+                        <strong>{{ gasto.Nombre }}</strong> - Monto: ${{ '{:,.2f}'.format(gasto.Monto) }} - Categoría: {{ gasto.Categoria }}
+                        <br>
+                        Descripción: {{ gasto.Descripcion }}
+                        <br>
+                        <a href="{{ url_for('editar_gasto', id=gasto.ID) }}">Editar</a> |
+                        <a href="{{ url_for('eliminar_gasto', id=gasto.ID) }}">Eliminar</a>
+                    </li>
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
+
+</body>
+</html>

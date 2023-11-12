@@ -1,0 +1,41 @@
+<!-- templates/editar_gasto.html -->
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <title>Editar Gasto</title>
+</head>
+
+<body>
+    <h1>Editar Gasto</h1>
+    <div class="container-gasto">
+        <div class="form-container edit-form">
+
+            <form method="POST" action="{{ url_for('editar_gasto', id=gasto.ID) }}">
+                <label for="nombre">Nombre:</label>
+                <input type="text" name="nombre" value="{{ gasto.Nombre }}" required><br>
+
+                <label for="monto">Monto:</label>
+                <input type="number" name="monto" step="0.01" value="{{ gasto.Monto }}" required><br>
+
+                <label for="descripcion">Descripción:</label>
+                <textarea name="descripcion" required>{{ gasto.Descripcion }}</textarea><br>
+
+                <label for="categoria">Categoría:</label>
+                <select name="categoria" required>
+                    <option value="alimentacion" {% if gasto.Categoria == 'alimentacion' %}selected{% endif %}>Alimentación</option>
+                    <option value="transporte" {% if gasto.Categoria == 'transporte' %}selected{% endif %}>Transporte</option>
+                    <option value="ocio" {% if gasto.Categoria == 'ocio' %}selected{% endif %}>Ocio</option>
+                    <option value="personal" {% if gasto.Categoria == 'personal' %}selected{% endif %}>Personal</option>
+                </select><br>
+
+                <button type="submit">Guardar Cambios</button>
+            </form>
+
+        </div>
+    </div>
+</body>
+</html>

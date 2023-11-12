@@ -1,0 +1,33 @@
+<!-- templates/registrar_gasto.html -->
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registro de Gastos Diarios</title>
+</head>
+<body>
+    <h1>Registro de Gastos Diarios</h1>
+    <form method="POST" action="{{ url_for('registrar_gasto') }}">
+        <label for="nombre">Nombre:</label>
+        <input type="text" name="nombre" required><br>
+
+        <label for="monto">Monto:</label>
+        <input type="number" name="monto" step="0.01" required><br>
+
+        <label for="descripcion">Descripción:</label>
+        <textarea name="descripcion" required></textarea><br>
+
+        <label for="categoria">Categoría:</label>
+        <select name="categoria" required>
+            <option value="alimentacion">Alimentación</option>
+            <option value="transporte">Transporte</option>
+            <option value="ocio">Ocio</option>
+            <option value="personal">Personal</option>
+        </select><br>
+
+        <button type="submit">Registrar Gasto</button>
+    </form>
+</body>
+</html>
