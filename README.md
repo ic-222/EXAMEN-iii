@@ -20,7 +20,9 @@ Este gestor de gastos es una aplicación web simple construida con Flask, un mar
 
 # Requisitos
 Será necesario tener instalado en el sistema pip, Python y *añadirlo al path* en el momento de la instalación, git y un editor de código para poder configurar la app.
+<br>
 (Con un simple bloc de notas podrás llevar a cabo este paso)
+<br>
 Aquí puedes descargar python: https://www.python.org/downloads/
 ![image](https://github.com/ic-222/EXAMEN-iii/assets/136537533/ec6dd1b7-0261-421e-864f-b385e69cf65d)
 
@@ -39,7 +41,8 @@ Si no posees git en tu sistema, puedes descargar el proyecto en un archivo zip y
 
 ### Instalar Requerimientos
 Ubícate en la carpeta donde clonaste/descargaste el repositorio, abre una terminal y ejecuta el siguiente comando, así conseguirás todos los módulos usados para que funcione la app.
-![image](https://github.com/ic-222/EXAMEN-iii/assets/136537533/358e9c06-7a59-4723-b985-4d09620cc50a)
+![image](https://github.com/ic-222/EXAMEN-iii/assets/136537533/0c8f3e59-4e27-4627-a248-4e05ea1fd9c6)
+
 
 
 ```bash
@@ -47,8 +50,9 @@ pip install -r requirements.txt
 ```
 
 ## Configuración de la app
-Cambia la Ruta de la Base de Datos:
-Abre el archivo config.py en el directorio raíz del proyecto. 
+Cambia la Ruta de la Base de Datos.
+<br>
+Edita el archivo config.py en el directorio raíz del proyecto. 
 Encuentra la línea que contiene DATABASE_CONNECTION_STRING y cambia la ruta del archivo .accdb para que coincida con la ubicación de tu base de datos MS Access en tu sistema local.
 
 ![image](https://github.com/ic-222/EXAMEN-iii/assets/136537533/3009c9c3-eb61-4181-b9a0-579772a07683)
