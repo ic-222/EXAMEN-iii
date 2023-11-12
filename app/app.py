@@ -98,21 +98,20 @@ def inicio():
 
         insertar_gasto(nombre, monto, descripcion, categoria)
 
-    # Mostrar la lista de gastos después de registrar uno nuevo
     gastos = obtener_gastos()
     total_gastado = calcular_total_gastado()
 
     return render_template('mostrar_gastos.html', gastos=gastos, total_gastado=total_gastado)
 
 
-# Ruta para mostrar la lista de gastos
+## MOSTRAR GASTOS
 @app.route('/mostrar_gastos')
 def mostrar_gastos():
     gastos = obtener_gastos()
     total_gastado = calcular_total_gastado()
     return render_template('mostrar_gastos.html', gastos=gastos, total_gastado=total_gastado)
 
-# Ruta para editar un gasto
+# EDITAR GASTO
 @app.route('/editar_gasto/<int:id>', methods=['GET', 'POST'])
 def editar_gasto(id):
     if request.method == 'POST':
@@ -123,14 +122,12 @@ def editar_gasto(id):
 
         actualizar_gasto(id, nombre, monto, descripcion, categoria)
         return redirect(url_for('mostrar_gastos'))
-
-    # Obtener el gasto a editar
     cursor.execute("SELECT * FROM Gastos WHERE ID=?", (id,))
     gasto = cursor.fetchone()
 
     return render_template('editar_gasto.html', gasto=gasto)
 
-# Ruta para eliminar un gasto
+# ELIMINAR GASTO
 @app.route('/eliminar_gasto/<int:id>')
 def eliminar_gasto(id):
     try:
@@ -141,7 +138,6 @@ def eliminar_gasto(id):
 
     return redirect(url_for('mostrar_gastos'))
 
-# Nueva función para eliminar gasto en la base de datos sin redirección
 def eliminar_gasto_db(id):
     cursor.execute("DELETE FROM Gastos WHERE ID=?", (id,))
     conn.commit()

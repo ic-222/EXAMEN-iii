@@ -54,6 +54,18 @@ input, textarea, select {
     box-sizing: border-box;
     border: 1px solid #ccc;
     border-radius: 4px;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Asegura que la fuente sea la correcta */
+    font-size: 14px;
+}
+
+textarea {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 10px;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Asegura que la fuente sea la correcta */
+    font-size: 14px; /* Ajusta el tamaño de la fuente según tus preferencias */
 }
 
 button {
